@@ -72,3 +72,4 @@ Passwords are hashed one can not see or use it.
 I uppdate last activity with middleware.
 Profile is stored in database. 
 I used restframework functions ,classes and serializers in this project.
+I used Javascript in HTML too so thats why it shows HTML code percentage too much and javascript too less
