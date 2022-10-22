@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Login page for chat</h2>
+
+<form method="post">
+    {% csrf_token %}
+  <label for="fname">Username:</label><br>
+  <input type="text" id="fname" name="username" ><br>
+  <label for="lname">Password:</label><br>
+  <input type="password" name="password" >
+  <button type="submit">    Giriş yap   </button> 
+</form>
+
+
+</body>
+</html>

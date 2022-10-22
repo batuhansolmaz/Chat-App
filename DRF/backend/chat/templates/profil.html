@@ -1,0 +1,58 @@
+{% extends "base.html" %} 
+{%  load rest_framework %}
+{% load static %}
+{% block content %}
+
+<head>
+    …
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+        <div class="media content-section">
+          <img class="rounded-circle article-img" src="{{ data.data.image }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              
+              <small class="text-muted">{{data.data.last_activity}}</small>
+            </div>
+            <h2><a class="article-title" href=""></a> {{data.data.username}}</h2>
+            <br>
+            <div>
+              <p class="intro "> <button type="button" onclick="location.href='/create_room'"> Create New Group </button> </p>
+            </div>
+            <br>
+            <h2><a class="article-title" href=""></a>  Groups </h2>
+            {% for i in rooms %}
+
+            <form action="exit" method="POST">
+              {% csrf_token %}
+              
+            <p class="intro " id= "mylink-{{i.abc}}"> {{i.name}}   <button  name='id' value={{i.abc}}> Click to exit </button> &emsp;
+
+              <button  name='add' value={{i.abc}}> Click to add new member </button> 
+        </p>
+              
+        </form>
+
+        
+        
+            {% endfor %}
+          </div>
+        </div>
+
+        <form action="{% url 'profile'  %}" method="POST" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {% render_form data template_pack='rest_framework/vertical' %}
+            <input type="submit" value="Save">
+        </form>
+
+        
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+      ></script>
+
+        
+        <script src = "{% static "exit.js" %}"></script> 
+        
+        {% endblock content %}
